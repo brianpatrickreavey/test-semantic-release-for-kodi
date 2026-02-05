@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "test-semantic-release-for-kodi"
-version = "0.5.1"
+version = "0.6.0"
 description = "Test repo for prototyping semantic-release with Kodi addon features"
 authors = [{name = "Test Author"}]
 dependencies = ["jinja2"]
