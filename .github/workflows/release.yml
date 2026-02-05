@@ -41,12 +41,12 @@ jobs:
 
       - name: Build | Create Addon Zip
         run: |
-          # Create zip of the addon directory
-          zip -r script.module.test-semantic-release-for-kodi.zip .
+          # Create zip of the addon directory using git archive
+          git archive --format=zip --output script.module.test-semantic-release-for-kodi-${{ steps.release.outputs.version }}.zip HEAD script.module.test-semantic-release-for-kodi
 
       - name: Release | Upload Zip to GitHub Release
         run: |
           # Upload the zip to the release created by PSR
-          gh release upload ${{ steps.release.outputs.tag }} script.module.test-semantic-release-for-kodi.zip
+          gh release upload ${{ steps.release.outputs.tag }} script.module.test-semantic-release-for-kodi-${{ steps.release.outputs.version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
