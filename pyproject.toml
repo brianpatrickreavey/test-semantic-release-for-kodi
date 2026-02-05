@@ -17,6 +17,7 @@ version_toml = ["pyproject.toml:project.version"]
 branch = "master"
 build_command = "/opt/psr/.venv/bin/pip install -e ."
 allow_zero_version = true
+major_on_zero = false
 commit_parser = "semantic_release.commit_parser:ConventionalCommitParser"
 commit_parser_options = { minor_tags = ["feat"], patch_tags = ["fix"] }
 changelog = { default_templates = { changelog_file = "CHANGELOG.md" }, templates = [ { template_file = "templates/addon.xml.j2", output_file = "script.module.test-semantic-release-for-kodi/addon.xml" } ] }
