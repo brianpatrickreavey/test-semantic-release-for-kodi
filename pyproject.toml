@@ -15,7 +15,7 @@ packages = []
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
 branch = "master"
-build_command = "/opt/psr/.venv/bin/python update_addon.py"
+build_command = "/opt/psr/.venv/bin/pip install -e . && /opt/psr/.venv/bin/python update_addon.py"
 allow_zero_version = true
 commit_parser = "semantic_release.commit_parser:ConventionalCommitParser"
 commit_parser_options = { minor_tags = ["feat"], patch_tags = ["fix"] }

@@ -28,7 +28,8 @@ jobs:
           echo "Python executable: $(which python)"
           python --version
           echo "PATH: $PATH"
-          pip list | grep jinja2
+          which pip || echo "pip not found"
+          pip list | grep jinja2 || echo "jinja2 not found in pip list (may be system installed)"
 
       - name: Action | Semantic Version Release
         id: release
