@@ -38,3 +38,15 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           git_committer_name: "github-actions"
           git_committer_email: "actions@users.noreply.github.com"
+
+      - name: Build | Create Addon Zip
+        run: |
+          # Create zip of the addon directory
+          zip -r script.module.test-semantic-release-for-kodi.zip .
+
+      - name: Release | Upload Zip to GitHub Release
+        run: |
+          # Upload the zip to the release created by PSR
+          gh release upload ${{ steps.release.outputs.tag }} script.module.test-semantic-release-for-kodi.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
