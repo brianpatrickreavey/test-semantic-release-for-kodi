@@ -65,4 +65,4 @@ This document outlines a potential future refactor of the kodi-addon-builder too
 - Answer open questions through research and prototyping.
 
 ## Status
-Prototyping successful—semantic-release configured and working for version bumping, changelog generation, commit, tag, and addon.xml updates via custom script. Custom script renders addon.xml with version and bracketed news ([new]/[fix]). Next: Port working setup to main kodi-addon-builder project, implement CI, test end-to-end.
+Prototyping complete—full semantic-release setup working with CI triggers for tag and PR label. Ready to port to main kodi-addon-builder project.

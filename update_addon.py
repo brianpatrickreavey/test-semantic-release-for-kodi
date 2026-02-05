@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 import subprocess
 import re
+import sys
+import os
 from jinja2 import Template
 from pathlib import Path
+
+# Debugging: Print environment details
+print(f"Python executable: {sys.executable}")
+print(f"Python version: {sys.version}")
+print(f"Current working directory: {Path.cwd()}")
+print(f"sys.path: {sys.path}")
+print(f"Environment PATH: {os.environ.get('PATH', 'Not set')}")
 
 # Get the latest version from pyproject.toml
 with open('pyproject.toml', 'r') as f:
