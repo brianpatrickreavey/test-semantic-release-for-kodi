@@ -20,4 +20,4 @@ allow_zero_version = true
 commit_parser = "semantic_release.commit_parser:ConventionalCommitParser"
 commit_parser_options = { minor_tags = ["feat"], patch_tags = ["fix"] }
 changelog = { default_templates = { changelog_file = "CHANGELOG.md" }, templates = [ { template_file = "addon.xml.j2", output_file = "addon.xml" } ] }
-github = { enabled = false }
+github = { enabled = true }

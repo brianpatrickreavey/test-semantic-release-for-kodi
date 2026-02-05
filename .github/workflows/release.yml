@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "release"
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  release:
+    if: (github.event_name == 'push' && github.ref == 'refs/tags/release') || (github.event_name == 'pull_request' && github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      - name: Install dependencies
+        run: uv pip install --system python-semantic-release
+      - name: Run semantic-release
+        run: semantic-release version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
