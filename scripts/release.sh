@@ -27,4 +27,4 @@ echo "Triggering release workflow..."
 gh workflow run release
 
 echo "Release workflow triggered successfully!"
-echo "Monitor progress at: https://github.com/$(gh repo view --json owner,name -q '.owner.login + \"/\" + .name')/actions"
+echo "Monitor progress at: https://github.com/$(gh repo view --json owner,name -q '"\(.owner.login)/\(.name)"')/actions"
