@@ -10,9 +10,8 @@
     <platform>all</platform>
     <news>
 Release v{{ version }}
-Test template processing
-{% for type, commits in unreleased.items() -%}
-Type: {{ type }}, Commits: {{ commits | length }}
+{% for commit in commits -%}
+{% if commit.type == 'feat' or commit.type == 'perf' %}[new] {{ commit.subject }}{% elif commit.type == 'fix' %}[fix] {{ commit.subject }}{% endif %}
 {% endfor -%}
     </news>
   </extension>

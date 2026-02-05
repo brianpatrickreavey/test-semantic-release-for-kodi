@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.module.test-semantic-release-for-kodi" name="Test Semantic Release Module" version="0.4.0" provider-name="Test Author">
+<addon id="script.module.test-semantic-release-for-kodi" name="Test Semantic Release Module" version="0.6.2" provider-name="Test Author">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
@@ -9,13 +9,19 @@
     <description>Test module demonstrating automated semantic releases with conventional commits.</description>
     <platform>all</platform>
     <news>
-Release v0.4.0
+Release v0.6.2
+[new] add major_on_zero=false config for semantic versioning during 0.x development
+[new] restructure as proper Kodi addon with dedicated directory
+[new] add addon zip creation and upload to release
 [new] add debugging to workflow and script
 [new] add jinja2 dependency and install step in CI
 [new] add portable release script for CLI triggering
 [new] include perf commits in addon.xml news whitelist
 [new] implement custom script for addon.xml updates with bracketed news
 [new] add another feature for testing bump
+[fix] test template variable fix
+[fix] test template variable fix
+[fix] update addon.xml template to match new structure
 [fix] correct YAML formatting for debug step
 [fix] correct jq expression in release script
 [fix] another test fix
