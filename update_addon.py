@@ -10,6 +10,11 @@ with open('pyproject.toml', 'r') as f:
     match = re.search(r'version = "([^"]+)"', content)
     version = match.group(1) if match else "0.1.0"
 
+# Whitelist of commit types to include in addon.xml news
+# Standard conventional commits: feat, fix, perf, refactor, docs, style, test, chore, ci, build, revert
+# For addon.xml, we include only user-facing changes: feat and fix, as well as perf.
+included_types = ['feat', 'fix', 'perf']
+
 # Get commits since last tag
 result = subprocess.run(['git', 'log', '--oneline', '--pretty=format:%s', 'HEAD...v0.1.0'], capture_output=True, text=True)
 commits = []
@@ -20,7 +25,13 @@ for line in result.stdout.strip().split('\n'):
         if match:
             type_ = match.group(1)
             subject = match.group(2)
-            commits.append({'type': type_, 'subject': subject})
+            # Only include whitelisted types
+            if type_ in included_types:
+                commits.append({'type': type_, 'subject': subject})
+
+# Sort commits: feat/perf first, then fix, etc.
+priority = {'feat': 0, 'perf': 0, 'fix': 1}
+commits.sort(key=lambda c: priority.get(c['type'], 99))
 
 # Render template
 template_path = Path('templates/addon.xml.j2')
