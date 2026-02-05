@@ -57,6 +57,7 @@ This document outlines a potential future refactor of the kodi-addon-builder too
 - **Risks**: Potential for incorrect addon.xml if templating fails; need robust error handling.
 
 ## Next Steps (Future)
+- **Prototyping Setup**: Created test repo at `/home/bpreavey/Code/test-semantic-release-for-kodi` (added to main workspace) with initial commit and pushed to GitHub (https://github.com/brianpatrickreavey/test-semantic-release-for-kodi). Copied this plan document for reference.
 - Design Jinja2 templates for addon.xml and changelog.
 - Implement custom scripts for validations and RELEASE_NOTES.md.
 - Test integration with existing kodi-addon-builder logic.
@@ -64,4 +65,4 @@ This document outlines a potential future refactor of the kodi-addon-builder too
 - Answer open questions through research and prototyping.
 
 ## Status
-Active exploration—shifting from Keep a Changelog to conventional style and Jinja2 for addon.xml.
+Active prototyping—test repo set up; next: configure python-semantic-release and create basic addon.xml structure.
