@@ -49,8 +49,10 @@ with open(template_path, 'r') as f:
 
 output = template.render(version=version, commits=commits)
 
-# Write to addon.xml
-with open('addon.xml', 'w') as f:
+# Write to addon.xml in the addon directory
+addon_xml_path = Path('script.module.test-semantic-release-for-kodi/addon.xml')
+addon_xml_path.parent.mkdir(parents=True, exist_ok=True)
+with open(addon_xml_path, 'w') as f:
     f.write(output)
 
 print(f"Updated addon.xml to version {version}")
