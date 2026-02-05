@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "test-semantic-release-for-kodi"
-version = "0.2.1"
+version = "0.2.2"
 description = "Test repo for prototyping semantic-release with Kodi addon features"
 authors = [{name = "Test Author"}]
 dependencies = []
@@ -15,7 +15,7 @@ packages = []
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
 branch = "master"
-build_command = "echo 'no build'"
+build_command = "python update_addon.py"
 allow_zero_version = true
 commit_parser = "semantic_release.commit_parser:ConventionalCommitParser"
 commit_parser_options = { minor_tags = ["feat"], patch_tags = ["fix"] }
