@@ -39,12 +39,23 @@ jobs:
           git_committer_name: "github-actions"
           git_committer_email: "actions@users.noreply.github.com"
 
+      - name: Check if release was made
+        id: check_release
+        run: |
+          if git describe --tags --exact-match HEAD >/dev/null 2>&1; then
+            echo "released=true" >> $GITHUB_OUTPUT
+          else
+            echo "released=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Build | Create Addon Zip
+        if: steps.check_release.outputs.released == 'true'
         run: |
           # Create zip of the addon directory using git archive
           git archive --format=zip --output script.module.test-semantic-release-for-kodi-${{ steps.release.outputs.version }}.zip HEAD script.module.test-semantic-release-for-kodi
 
       - name: Release | Upload Zip to GitHub Release
+        if: steps.check_release.outputs.released == 'true'
         run: |
           # Upload the zip to the release created by PSR
           gh release upload ${{ steps.release.outputs.tag }} script.module.test-semantic-release-for-kodi-${{ steps.release.outputs.version }}.zip
