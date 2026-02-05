@@ -10,10 +10,9 @@
     <platform>all</platform>
     <news>
 Release v{{ version }}
-{% for type, commits in ctx.history.unreleased.items() -%}
-{% for commit in commits -%}
-{% if type == 'feat' or type == 'perf' %}[new] {{ commit.descriptions[0] }}{% elif type == 'fix' %}[fix] {{ commit.descriptions[0] }}{% endif %}
-{% endfor -%}
+Test template processing
+{% for type, commits in unreleased.items() -%}
+Type: {{ type }}, Commits: {{ commits | length }}
 {% endfor -%}
     </news>
   </extension>
