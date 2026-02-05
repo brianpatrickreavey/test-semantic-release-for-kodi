@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="test.addon" name="Test Addon" version="0.3.0" provider-name="Test Author">
+<addon id="test.addon" name="Test Addon" version="0.4.0" provider-name="Test Author">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
@@ -10,10 +10,15 @@
     <summary>Test addon for semantic-release prototyping</summary>
     <description>Test addon for semantic-release prototyping</description>
     <news>
-Release v0.3.0
+Release v0.4.0
+[new] add debugging to workflow and script
+[new] add jinja2 dependency and install step in CI
+[new] add portable release script for CLI triggering
 [new] include perf commits in addon.xml news whitelist
 [new] implement custom script for addon.xml updates with bracketed news
 [new] add another feature for testing bump
+[fix] correct YAML formatting for debug step
+[fix] correct jq expression in release script
 [fix] another test fix
 [fix] test fix commit for patch bump
 </news>
