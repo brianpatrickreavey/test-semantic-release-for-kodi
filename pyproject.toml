@@ -7,7 +7,7 @@ name = "test-semantic-release-for-kodi"
 version = "0.3.0"
 description = "Test repo for prototyping semantic-release with Kodi addon features"
 authors = [{name = "Test Author"}]
-dependencies = []
+dependencies = ["jinja2"]
 
 [tool.setuptools]
 packages = []
