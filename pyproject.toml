@@ -16,7 +16,8 @@ packages = []
 version_toml = ["pyproject.toml:project.version"]
 branch = "master"
 changelog_file = "CHANGELOG.md"
-build_command = false
-commit_parser = "semantic_release.commit_parser.ConventionalCommitParser"
+build_command = "echo 'no build'"
+allow_zero_version = true
+commit_parser = "semantic_release.commit_parser:ConventionalCommitParser"
 commit_parser_options = { minor_tags = ["feat"], patch_tags = ["fix"] }
 changelog = { template_dir = "templates", changelog_file = "CHANGELOG.md" }
