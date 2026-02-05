@@ -18,10 +18,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Python Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: python-semantic-release/python-semantic-release-action@v9
         with:
-          semantic_version: 10.5.3
-          extra_plugins: |
-            python-semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
